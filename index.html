@@ -6,29 +6,28 @@
   <title>I AM ARUL</title>
 
   <style>
-    /* Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
     }
 
     body {
-      background: linear-gradient(180deg, #ffffff, #f7f9fc);
-      color: #222;
+      background: #ffffff;
+      color: #111;
       overflow-x: hidden;
     }
 
-    /* Smooth fade animations */
+    /* Fade animation */
     .fade {
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.7s ease-out;
+      transition: 0.7s ease-out;
     }
-
     .fade.show {
       opacity: 1;
       transform: translateY(0);
@@ -37,12 +36,26 @@
     /* HERO SECTION */
     .hero {
       height: 100vh;
+      padding: 40px 20px 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+
+      background: linear-gradient(to bottom, #eaf2ff 0%, #f6f9ff 70%, #ffffff 100%);
+      position: relative;
+    }
+
+    /* Soft wave bottom */
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: radial-gradient(circle at 50% 0%, #e3edff, #ffffff 70%);
     }
 
     .hero h1 {
@@ -52,54 +65,70 @@
     }
 
     .hero p {
-      margin-top: 20px;
+      margin-top: 18px;
       font-size: 1.3rem;
-      max-width: 650px;
+      max-width: 680px;
+      color: #4a4f64;
       line-height: 1.6;
-      color: #555;
     }
 
     .mini-tag {
       margin-top: 12px;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: #444;
+      color: #1f3f75;
     }
 
     .btn-group {
       margin-top: 35px;
       display: flex;
-      gap: 20px;
+      gap: 18px;
     }
 
     .btn {
-      padding: 12px 28px;
+      padding: 12px 32px;
       border-radius: 30px;
-      text-decoration: none;
       font-size: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #2E77FF;
       color: white;
-      background: #111;
-      transition: 0.2s;
+    }
+    .btn-primary:hover {
+      background: #185fe6;
+      transform: translateY(-3px);
     }
 
-    .btn:hover {
-      background: #34a0ff;
+    .btn-outline {
+      border: 2px solid #2E77FF;
+      color: #2E77FF;
+      background: white;
+    }
+    .btn-outline:hover {
+      background: #2E77FF;
+      color: white;
+      transform: translateY(-3px);
     }
 
-    /* SECTION WRAPPER */
+    /* SECTION */
     section {
-      padding: 80px 20px;
-      max-width: 950px;
-      margin: auto;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 20px 60px;
     }
 
     h2 {
-      font-size: 2.2rem;
-      margin-bottom: 25px;
       text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 35px;
+      color: #0d1b3d;
     }
 
-    /* CARDS GRID */
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -107,47 +136,50 @@
     }
 
     .card {
-      padding: 25px;
-      border-radius: 15px;
+      padding: 28px;
+      border-radius: 16px;
       background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      transition: 0.3s;
-      cursor: default;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      transition: 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.1);
     }
 
     .card h3 {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #4a4f64;
+      line-height: 1.55;
     }
 
     /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+
     .contact a {
       text-decoration: none;
-      color: #111;
+      color: #2E77FF;
       font-weight: 600;
       font-size: 1.1rem;
     }
 
-    .contact {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    /* FOOTER */
     footer {
       text-align: center;
-      padding: 35px 0;
-      margin-top: 30px;
+      padding: 25px 0 40px;
       font-size: 0.9rem;
-      color: #666;
+      color: #777;
     }
 
   </style>
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -157,8 +189,240 @@
     <div class="mini-tag">Builder • Automator • L&D Technologist</div>
 
     <div class="btn-group">
-      <a href="#" class="btn">View Resume</a>
-      <a href="mailto:arulrajan22@gmail.com" class="btn">Contact Me</a>
+      <a href="#" class="btn btn-primary">View Resume</a>
+      <a href="mailto:arulrajan22@gmail.com" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <section class="fade">
+    <h2>What I Do</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Systems & Automation</h3>
+        <p>I design workflows that remove repetitive effort and make daily operations smoother.</p>
+      </div>
+
+      <div class="card">
+        <h3>L&D + Platforms</h3>
+        <p>I manage learning platforms, create courses, track progress, and enable better learning systems.</p>
+      </div>
+
+      <div class="card">
+        <h3>Tech + Tools</h3>
+        <p>n8n, Notion API, Slack workflows, Cloudflare Pages, Ubuntu server, and automation stacks.</p>
+      </div>
+
+      <div class="card">
+        <h3>Writing & Thinking</h3>
+        <p>Sharing insights, mental models, and reflections to improve clarity and execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="fade">
+    <h2>Featured Work</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>NammaCare</h3>
+        <p>A digital health platform simplifying community healthcare workflows.</p>
+      </div>
+
+      <div class="card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I AM ARUL</title>
+
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* Fade animation */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.7s ease-out;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      padding: 40px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      background: linear-gradient(to bottom, #eaf2ff 0%, #f6f9ff 70%, #ffffff 100%);
+      position: relative;
+    }
+
+    /* Soft wave bottom */
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: radial-gradient(circle at 50% 0%, #e3edff, #ffffff 70%);
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      margin-top: 18px;
+      font-size: 1.3rem;
+      max-width: 680px;
+      color: #4a4f64;
+      line-height: 1.6;
+    }
+
+    .mini-tag {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1f3f75;
+    }
+
+    .btn-group {
+      margin-top: 35px;
+      display: flex;
+      gap: 18px;
+    }
+
+    .btn {
+      padding: 12px 32px;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #2E77FF;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #185fe6;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 2px solid #2E77FF;
+      color: #2E77FF;
+      background: white;
+    }
+    .btn-outline:hover {
+      background: #2E77FF;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* SECTION */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 20px 60px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 35px;
+      color: #0d1b3d;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #4a4f64;
+      line-height: 1.55;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      text-decoration: none;
+      color: #2E77FF;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0 40px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <div class="hero fade">
+    <h1>I AM ARUL</h1>
+    <p>I build systems that make life simpler — clear thinking, clean workflows, meaningful results.</p>
+    <div class="mini-tag">Builder • Automator • L&D Technologist</div>
+
+    <div class="btn-group">
+      <a href="#" class="btn btn-primary">View Resume</a>
+      <a href="mailto:arulrajan22@gmail.com" class="btn btn-outline">Contact Me</a>
     </div>
   </div>
 
@@ -223,7 +487,7 @@
         <p>• From Chaos to Clarity — How Systems Improve Life</p>
         <p>• The Power of Daily Discipline</p>
         <p>• Lessons From Building My Own Digital Tools</p>
-        <p style="margin-top:10px; font-weight:600; cursor:pointer;">View all articles →</p>
+        <p style="margin-top:12px; font-weight:600; cursor:pointer; color:#2E77FF;">View all articles →</p>
       </div>
     </div>
   </section>
@@ -242,16 +506,70 @@
   </footer>
 
   <script>
-    // fade-in on scroll
+    // fade-in effect
     const fades = document.querySelectorAll('.fade');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.2 });
-
     fades.forEach(f => observer.observe(f));
   </script>
 
 </body>
-</html>
+</html>        <h3>MedEase+</h3>
+        <p>Doctor onboarding, patient support, and operational workflows made simple.</p>
+      </div>
+
+      <div class="card">
+        <h3>Automation Projects</h3>
+        <p>Task reminders, Telegram bots, workflow automations, and operational dashboards.</p>
+      </div>
+
+      <div class="card">
+        <h3>Personal Systems</h3>
+        <p>The internal systems I use to manage learning, habits, and personal growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIND OF ARUL -->
+  <section class="fade">
+    <h2>Mind of Arul</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Latest Articles</h3>
+        <p>• From Chaos to Clarity — How Systems Improve Life</p>
+        <p>• The Power of Daily Discipline</p>
+        <p>• Lessons From Building My Own Digital Tools</p>
+        <p style="margin-top:12px; font-weight:600; cursor:pointer; color:#2E77FF;">View all articles →</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact fade">
+    <h2>Contact</h2>
+    <p><a href="mailto:arulrajan22@gmail.com">arulrajan22@gmail.com</a></p>
+    <p style="margin-top:10px;">
+      <a href="#">LinkedIn</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Arul. Built with clarity and intention.
+  </footer>
+
+  <script>
+    // fade-in effect
+    const fades = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.2 });
+    fades.forEach(f => observer.observe(f));
+  </script>
+
+</body>
+</html> 
