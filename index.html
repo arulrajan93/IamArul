@@ -1,127 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I AM ARUL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I am Arul</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to bottom, #eaf2ff 0%, #f6f9ff 70%, #ffffff 100%);
-      color: #111;
-      overflow-x: hidden;
-    }
-
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 0.7s ease-out;
-    }
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero {
-      height: 100vh;
-      padding: 40px 20px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 100px;
-      background: radial-gradient(circle at 50% 0%, #e3edff, #ffffff 70%);
-    }
-
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .hero p {
-      margin-top: 18px;
-      font-size: 1.3rem;
-      max-width: 680px;
-      color: #4a4f64;
-      line-height: 1.6;
-    }
-
-    .mini-tag {
-      margin-top: 12px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #1f3f75;
-    }
-
-    .btn-group {
-      margin-top: 35px;
-      display: flex;
-      gap: 18px;
-    }
-
-    .btn {
-      padding: 12px 32px;
-      border-radius: 30px;
-      font-size: 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: #2E77FF;
-      color: white;
-    }
-
-    .btn-outline {
-      border: 2px solid #2E77FF;
-      color: #2E77FF;
-      background: white;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="hero fade">
-    <h1>I AM ARUL</h1>
-    <p>I build systems that make life simpler — clear thinking, clean workflows, meaningful results.</p>
-    <div class="mini-tag">Builder • Automator • L&D Technologist</div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="typing">
+      <span id="typed-text"></span><span class="cursor">|</span>
+    </h1>
 
-    <div class="btn-group">
-      <a href="#" class="btn btn-primary">View Resume</a>
-      <a href="mailto:arulrajan22@gmail.com" class="btn btn-outline">Contact Me</a>
+    <div id="hero-content" class="hidden">
+      <p class="tagline">
+        I build systems that make life simpler — clear thinking, clean workflows, meaningful results.
+      </p>
+
+      <div class="links">
+        <a href="#mind">Mind of Arul</a>
+        <a href="#work">What I Build</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    const fades = document.querySelectorAll('.fade');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.2 });
-    fades.forEach(f => observer.observe(f));
-  </script>
+  <!-- SECTIONS -->
+  <section id="mind" class="section">
+    <h2>Mind of Arul</h2>
+    <p>
+      Thoughts on systems, learning, discipline, automation, and building a meaningful life.
+    </p>
+  </section>
 
+  <section id="work" class="section light">
+    <h2>What I Build</h2>
+    <ul>
+      <li>Automation with n8n & self-hosted systems</li>
+      <li>Learning platforms & internal tools</li>
+      <li>Simple, reliable workflows</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:arulrajan22@gmail.com">Email</a> ·
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    </p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
