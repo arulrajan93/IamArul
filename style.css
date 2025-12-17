@@ -1,7 +1,8 @@
+/* Background & Layout */
 body {
   margin: 0;
   font-family: Inter, sans-serif;
-  background: #f7f9fc;
+  background: linear-gradient(180deg, #F6F4FF, #ECE7FF);
   color: #222;
 }
 
@@ -12,11 +13,14 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 20px;
 }
 
+/* Typing Text */
 h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .cursor {
@@ -28,23 +32,101 @@ h1 {
   25%, 75% { opacity: 0; }
 }
 
-.hidden {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
+/* Hero Content */
 #hero-content {
   margin-top: 1rem;
   opacity: 0;
+  transition: opacity 0.7s ease;
 }
 
 #hero-content:not(.hidden) {
   opacity: 1;
 }
 
+.tagline {
+  margin: 0.4rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Links */
 .links a {
   margin: 0 10px;
   text-decoration: none;
-  color: #0070f3;
-  font-weight: 500;
+  color: #4A3DE0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #4A3DE0;
+  padding-left: 10px;
+}
+
+/* About Section */
+.about p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Skills */
+.skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.skills li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #4A3DE0;
+  font-size: 1.5rem;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.project-card {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 25px rgba(0,0,0,0.12);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  margin-top: 80px;
+  font-size: 0.9rem;
+  color: #555;
 }
