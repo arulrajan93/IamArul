@@ -13,20 +13,17 @@ function typeFirst() {
     i++;
     setTimeout(typeFirst, 120);
   } else {
-    setTimeout(deleteIronman, 1000);
+    setTimeout(deleteIronman, 600);
   }
 }
 
-// delete only the word "Ironman" from the end
 function deleteIronman() {
   const current = textEl.textContent;
 
-  // While the last character is not a space, delete it
   if (current.length > 0 && current[current.length - 1] !== " ") {
     textEl.textContent = current.slice(0, -1);
     setTimeout(deleteIronman, 80);
   } else {
-    // Now last character is the space after "am "
     setTimeout(typeSecond, 300);
   }
 }
