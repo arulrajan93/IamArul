@@ -1,44 +1,39 @@
 const textEl = document.getElementById("typed-text");
 const heroContent = document.getElementById("hero-content");
 
-const fullText = "I am Ironman";
-const replaceText = "Arul";
+const firstText = "I am Ironman";
+const secondText = "Arul";
 
-let index = 0;
+let i = 0;
 
-// Step 1: Type "I am Ironman"
-function typeIronman() {
-  if (index < fullText.length) {
-    textEl.textContent += fullText.charAt(index);
-    index++;
-    setTimeout(typeIronman, 120);
+function typeFirst() {
+  if (i < firstText.length) {
+    textEl.textContent += firstText.charAt(i);
+    i++;
+    setTimeout(typeFirst, 120);
   } else {
     setTimeout(deleteIronman, 1000);
   }
 }
 
-// Step 2: Delete only "Ironman"
 function deleteIronman() {
-  const current = textEl.textContent;
-  if (current.endsWith("Ironman")) {
-    textEl.textContent = current.slice(0, -1);
+  if (textEl.textContent.endsWith("Ironman")) {
+    textEl.textContent = textEl.textContent.slice(0, -1);
     setTimeout(deleteIronman, 80);
   } else {
-    setTimeout(typeArul, 400);
+    setTimeout(typeSecond, 300);
   }
 }
 
-// Step 3: Type "Arul"
-let arulIndex = 0;
-function typeArul() {
-  if (arulIndex < replaceText.length) {
-    textEl.textContent += replaceText.charAt(arulIndex);
-    arulIndex++;
-    setTimeout(typeArul, 120);
+let j = 0;
+function typeSecond() {
+  if (j < secondText.length) {
+    textEl.textContent += secondText.charAt(j);
+    j++;
+    setTimeout(typeSecond, 120);
   } else {
-    heroContent.classList.add("show");
+    heroContent.classList.remove("hidden");
   }
 }
 
-// Start animation
-typeIronm an();
+typeFirst();
