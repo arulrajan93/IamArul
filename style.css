@@ -1,92 +1,87 @@
-/* HERO SECTION */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* HERO */
 .hero {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 80px 20px 40px;
   text-align: center;
-  padding: 0 20px;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: 12px;
 }
 
-/* Tagline spacing */
 .tagline {
-  margin: 0.3rem 0;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  max-width: 600px;
+  margin: 0 auto 16px;
 }
 
-/* Sections */
-section {
+.links a {
+  margin: 0 10px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* CONTENT */
+.content {
   max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  border-left: 4px solid #4A3DE0;
-  padding-left: 10px;
-}
-
-/* Project Grid */
-.project-grid {
-  display: grid;
-  gap: 15px;
-}
-
-/* Cards */
-.project-card {
-  padding: 15px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-  transition: transform 0.2s ease;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
+  margin: 0 auto;
   padding: 20px;
-  margin-top: 40px;
-  font-size: 0.9rem;
 }
 
-/* ---------------------------
-   MOBILE RESPONSIVE FIXES
-   --------------------------- */
+.content h2 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.content ul {
+  padding-left: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+/* MOBILE TWEAKS */
 @media (max-width: 600px) {
-
-  /* Reduce hero height */
   .hero {
-    min-height: 65vh;
-    padding-top: 40px;
+    padding: 60px 16px 30px;
   }
 
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  .tagline {
-    font-size: 1rem;
-  }
-
-  /* Reduce spacing between sections */
-  section {
-    margin: 25px auto;
-  }
-
-  section h2 {
-    font-size: 1.5rem;
-  }
-
-  /* Project cards */
-  .project-card {
-    padding: 12px;
+  .content {
+    padding: 16px;
   }
 }
