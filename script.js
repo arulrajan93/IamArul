@@ -1,41 +1,27 @@
 const textEl = document.getElementById("typed-text");
-const heroContent = document.getElementById("hero-content");
 
-const firstText = "I am Ironman";
-const secondText = "Arul";
+const words = ["I am Ironman", "I am Batman", "I am Arul..."];
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-let i = 0;
-let j = 0;
+function typeLoop() {
+  const currentWord = words[wordIndex];
 
-function typeFirst() {
-  if (i < firstText.length) {
-    textEl.textContent += firstText.charAt(i);
-    i++;
-    setTimeout(typeFirst, 120);
+  if (!deleting) {
+    textEl.textContent = currentWord.slice(0, charIndex++);
+    if (charIndex > currentWord.length) {
+      setTimeout(() => deleting = true, 1000);
+    }
   } else {
-    setTimeout(deleteIronman, 600);
+    textEl.textContent = currentWord.slice(0, charIndex--);
+    if (charIndex < 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
   }
+
+  setTimeout(typeLoop, deleting ? 60 : 120);
 }
 
-function deleteIronman() {
-  const current = textEl.textContent;
-
-  if (current.length > 0 && current[current.length - 1] !== " ") {
-    textEl.textContent = current.slice(0, -1);
-    setTimeout(deleteIronman, 80);
-  } else {
-    setTimeout(typeSecond, 300);
-  }
-}
-
-function typeSecond() {
-  if (j < secondText.length) {
-    textEl.textContent += secondText.charAt(j);
-    j++;
-    setTimeout(typeSecond, 120);
-  } else {
-    heroContent.classList.remove("hidden");
-  }
-}
-
-typeFirst();
+typeLoop();
