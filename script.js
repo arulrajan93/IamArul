@@ -1,32 +1,45 @@
 const textEl = document.getElementById("typed-text");
 
-const prefix = "I am ";
-const words = ["Ironman", "Batman", "Arul..."];
-
-let wordIndex = 0;
+const roles = ["Ironman", "Batman", "Arul..."];
+let roleIndex = 0;
 let charIndex = 0;
-let deleting = false;
-
-textEl.textContent = prefix;
+let typing = true;
 
 function typeLoop() {
-  const currentWord = words[wordIndex];
+  const baseText = "I am ";
+  const currentRole = roles[roleIndex];
 
-  if (!deleting) {
-    textEl.textContent = prefix + currentWord.slice(0, charIndex++);
-    if (charIndex > currentWord.length) {
-      setTimeout(() => deleting = true, 1000);
+  if (typing) {
+    if (charIndex < currentRole.length) {
+      textEl.textContent = baseText + currentRole.slice(0, charIndex + 1);
+      charIndex++;
+      setTimeout(typeLoop, 120);
+    } else {
+      typing = false;
+      setTimeout(typeLoop, 900);
     }
   } else {
-    textEl.textContent = prefix + currentWord.slice(0, charIndex--);
-    if (charIndex < 0) {
-      deleting = false;
-      charIndex = 0;
-      wordIndex = (wordIndex + 1) % words.length;
+    if (charIndex > 0) {
+      textEl.textContent = baseText + currentRole.slice(0, charIndex - 1);
+      charIndex--;
+      setTimeout(typeLoop, 80);
+    } else {
+      typing = true;
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeLoop, 300);
     }
   }
-
-  setTimeout(typeLoop, deleting ? 70 : 120);
 }
 
 typeLoop();
+
+/* Scroll fade-in */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
