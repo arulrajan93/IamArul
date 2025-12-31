@@ -78,6 +78,7 @@ a:hover {
 .post-preview h2 {
   margin: 0 0 6px;
   font-size: 1.4rem;
+  padding-left: 8px;
 }
 
 .post-preview .meta {
