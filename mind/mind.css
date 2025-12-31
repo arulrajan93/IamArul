@@ -1,13 +1,16 @@
 :root {
   --bg-main: #f7f9fc;
-  --bg-white: #ffffff;
+  --bg-paper: #ffffff;
+  --bg-soft: #eef2f7;
+
   --text-main: #1f2937;
   --text-muted: #6b7280;
-  --accent: #4f46e5;
-  --border-soft: #e5e7eb;
-}
 
-/* Base */
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+
+  --border-light: #e5e7eb;
+}
 
 * {
   box-sizing: border-box;
@@ -16,30 +19,38 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: var(--bg-main);
+  background: linear-gradient(180deg, var(--bg-main), var(--bg-soft));
   color: var(--text-main);
-  line-height: 1.7;
+  line-height: 1.75;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Header */
-
 .mind-header {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 48px 24px 32px;
+  padding: 48px 20px 32px;
 }
 
 .mind-header .back {
   display: inline-block;
-  margin-bottom: 24px;
-  color: var(--accent);
+  margin-bottom: 20px;
   font-size: 0.9rem;
-  text-decoration: none;
 }
 
 .mind-header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  margin: 0 0 12px;
 }
 
 .mind-header p {
@@ -47,19 +58,17 @@ body {
   max-width: 640px;
 }
 
-/* Main container */
-
+/* Main container (THIS fixes your alignment issue) */
 .mind-container {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 0 24px 64px;
+  padding: 24px 20px 64px;
 }
 
-/* Post preview */
-
+/* Post preview list */
 .post-preview {
   padding: 28px 0;
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .post-preview:last-child {
@@ -67,56 +76,82 @@ body {
 }
 
 .post-preview h2 {
+  margin: 0 0 6px;
   font-size: 1.4rem;
-  margin-bottom: 6px;
 }
 
-.post-preview h2 a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.post-preview h2 a:hover {
-  text-decoration: underline;
-}
-
-.meta {
+.post-preview .meta {
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.excerpt {
-  max-width: 640px;
-  color: var(--text-main);
+.post-preview .excerpt {
+  color: var(--text-muted);
+  max-width: 620px;
+}
+
+/* Blog post page */
+.post {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+
+.post h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 12px;
+}
+
+.post .meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+/* Section headings */
+.post h2 {
+  margin-top: 48px;
+  margin-bottom: 12px;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+/* Paragraphs */
+.post p {
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+/* Quotes */
+.post blockquote {
+  margin: 32px 0;
+  padding: 20px 24px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  color: #374151;
 }
 
 /* Footer */
-
 .mind-footer {
-  border-top: 1px solid var(--border-soft);
-  padding: 32px 24px;
   text-align: center;
+  padding: 32px 16px;
   font-size: 0.85rem;
   color: var(--text-muted);
+  background: transparent;
 }
 
-/* Mobile tweaks */
-
+/* Mobile */
 @media (max-width: 600px) {
-  .mind-header {
-    padding: 36px 20px 28px;
+  .mind-header,
+  .mind-container,
+  .post {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .mind-container {
-    padding: 0 20px 48px;
-  }
-
-  .mind-header h1 {
-    font-size: 1.9rem;
-  }
-
-  .post-preview h2 {
-    font-size: 1.25rem;
+  .post h2 {
+    font-size: 1.4rem;
   }
 }
