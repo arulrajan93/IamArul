@@ -1,44 +1,70 @@
+/* =========================
+   TYPING ANIMATION (HERO)
+========================= */
+
 const textEl = document.getElementById("typed-text");
 
 const phrases = [
-  "build systems",
-  "value clarity",
-  "am Arul"
+  "I build systems",
+  "I value clarity",
+  "I am Arul"
 ];
 
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
+const typingSpeed = 90;
+const deletingSpeed = 60;
+const pauseAfterType = 1200;
+const pauseAfterDelete = 400;
 
 function typeLoop() {
   const currentPhrase = phrases[phraseIndex];
-  const prefix = "I ";
 
   if (!isDeleting) {
     // Typing
-    textEl.textContent =
-      prefix + currentPhrase.substring(0, charIndex + 1);
+    textEl.textContent = currentPhrase.slice(0, charIndex + 1);
     charIndex++;
 
     if (charIndex === currentPhrase.length) {
-      // Pause before deleting (except last phrase)
-      if (phraseIndex === phrases.length - 1) return;
-      setTimeout(() => (isDeleting = true), 1200);
+      setTimeout(() => (isDeleting = true), pauseAfterType);
     }
   } else {
-    // Deleting (only the phrase, not "I ")
-    textEl.textContent =
-      prefix + currentPhrase.substring(0, charIndex - 1);
+    // Deleting
+    textEl.textContent = currentPhrase.slice(0, charIndex - 1);
     charIndex--;
 
     if (charIndex === 0) {
       isDeleting = false;
-      phraseIndex++;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(() => {}, pauseAfterDelete);
     }
   }
 
-  setTimeout(typeLoop, isDeleting ? 60 : 100);
+  setTimeout(
+    typeLoop,
+    isDeleting ? deletingSpeed : typingSpeed
+  );
 }
 
-// Start animation
 typeLoop();
+
+
+/* =========================
+   FADE-IN ON SCROLL
+========================= */
+
+const fades = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+fades.forEach(section => observer.obser ve(section));
