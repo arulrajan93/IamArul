@@ -1,70 +1,73 @@
-/* =========================
-   TYPING ANIMATION (HERO)
-========================= */
+ document.addEventListener("DOMContentLoaded", () => {
+  /* =========================
+     HERO TYPING ANIMATION
+  ========================= */
 
-const textEl = document.getElementById("typed-text");
+  const textEl = document.getElementById("typed-text");
 
-const phrases = [
-  "I build systems",
-  "I value clarity",
-  "I am Arul"
-];
+  if (!textEl) return; // hard safety guard
 
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingSpeed = 90;
-const deletingSpeed = 60;
-const pauseAfterType = 1200;
-const pauseAfterDelete = 400;
+  const phrases = [
+    "I build systems",
+    "I value clarity",
+    "I am Arul"
+  ];
 
-function typeLoop() {
-  const currentPhrase = phrases[phraseIndex];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
 
-  if (!isDeleting) {
-    // Typing
-    textEl.textContent = currentPhrase.slice(0, charIndex + 1);
-    charIndex++;
+  const typingSpeed = 90;
+  const deletingSpeed = 60;
+  const pauseAfterType = 1200;
+  const pauseAfterDelete = 400;
 
-    if (charIndex === currentPhrase.length) {
-      setTimeout(() => (isDeleting = true), pauseAfterType);
+  function typeLoop() {
+    const current = phrases[phraseIndex];
+
+    if (!isDeleting) {
+      textEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === current.length) {
+        setTimeout(() => (isDeleting = true), pauseAfterType);
+      }
+    } else {
+      textEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(() => {}, pauseAfterDelete);
+      }
     }
-  } else {
-    // Deleting
-    textEl.textContent = currentPhrase.slice(0, charIndex - 1);
-    charIndex--;
 
-    if (charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      setTimeout(() => {}, pauseAfterDelete);
-    }
+    setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
   }
 
-  setTimeout(
-    typeLoop,
-    isDeleting ? deletingSpeed : typingSpeed
+  typeLoop();
+
+
+  /* =========================
+     FADE-IN ON SCROLL
+  ========================= */
+
+  const fades = document.querySelectorAll(".fade");
+
+  if (!fades.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
   );
-}
 
-typeLoop();
-
-
-/* =========================
-   FADE-IN ON SCROLL
-========================= */
-
-const fades = document.querySelectorAll(".fade");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-fades.forEach(section => observer.observe(section));
+  fades.forEach(el => observer.observe(el));
+});
