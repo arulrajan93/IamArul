@@ -1,43 +1,44 @@
-// Typing animation
 const textEl = document.getElementById("typed-text");
 
-const roles = ["Ironman", "Batman", "Arul..."];
-let roleIndex = 0;
+const phrases = [
+  "build systems",
+  "value clarity",
+  "am Arul"
+];
+
+let phraseIndex = 0;
 let charIndex = 0;
-let deleting = false;
+let isDeleting = false;
 
 function typeLoop() {
-  const currentRole = roles[roleIndex];
+  const currentPhrase = phrases[phraseIndex];
+  const prefix = "I ";
 
-  if (!deleting && charIndex < currentRole.length) {
-    textEl.textContent += currentRole.charAt(charIndex);
+  if (!isDeleting) {
+    // Typing
+    textEl.textContent =
+      prefix + currentPhrase.substring(0, charIndex + 1);
     charIndex++;
-    setTimeout(typeLoop, 120);
-  } else if (!deleting) {
-    setTimeout(() => deleting = true, 900);
-    setTimeout(typeLoop, 120);
-  } else if (deleting && charIndex > 0) {
-    textEl.textContent = textEl.textContent.slice(0, -1);
-    charIndex--;
-    setTimeout(typeLoop, 80);
+
+    if (charIndex === currentPhrase.length) {
+      // Pause before deleting (except last phrase)
+      if (phraseIndex === phrases.length - 1) return;
+      setTimeout(() => (isDeleting = true), 1200);
+    }
   } else {
-    deleting = false;
-    roleIndex = (roleIndex + 1) % roles.length;
-    setTimeout(typeLoop, 300);
+    // Deleting (only the phrase, not "I ")
+    textEl.textContent =
+      prefix + currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      phraseIndex++;
+    }
   }
+
+  setTimeout(typeLoop, isDeleting ? 60 : 100);
 }
 
+// Start animation
 typeLoop();
-
-// Scroll fade-in
-const fades = document.querySelectorAll(".fade");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.15 });
-
-fades.forEach(el => observer.observe(el));
