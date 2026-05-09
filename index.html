@@ -3,136 +3,370 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IAmArul</title>
 
-  <!-- Font -->
+  <title>Arul — Systems Thinker · LMS Consultant · Automation</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1>
-       <span id="typed-text"></span><span class="cursor">|</span>
-    </h1>
+  <!-- ========================= -->
+  <!-- NAVBAR -->
+  <!-- ========================= -->
 
-    <p>I build systems that make life simpler.</p>
-    <p>Clear thinking → Clean systems → Better life.</p>
+  <header class="navbar">
+    <div class="nav-container">
 
-    <div class="links">
-      <a href="#contact">Contact</a>
-      <a href="#writing">Writing elsewhere</a>
-      <a href="/mind/">Mind of Arul</a>
+      <a href="/" class="logo">
+        iamarul
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="/mind/">Mind of Arul</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ABOUT -->
-<section class="white fade">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>
-      I learn by doing — breaking, rebuilding, and refining.
-      Every project starts with one goal: remove friction and reduce noise.
-    </p>
-    <p>
-      I prefer systems over chaos, clarity over complexity,
-      and progress over perfection.
-    </p>
-  </div>
-</section>
+  <!-- ========================= -->
+  <!-- HERO -->
+  <!-- ========================= -->
 
-<!-- WHAT I DO -->
-<section class="white fade">
-  <div class="container">
-    <h2>What I Do</h2>
-    <ul>
-      <li>Design simple workflows that reduce effort</li>
-      <li>Build automation using scripts and tools</li>
-      <li>Create documentation and learning systems</li>
-      <li>Turn ideas into usable, calm products</li>
-    </ul>
-  </div>
-</section>
+  <section class="hero">
 
-<!-- PROJECTS -->
-<section class="projects fade">
-  <div class="container">
-    <h2>Current Projects</h2>
+    <div class="hero-bg"></div>
 
-    <div class="card">
-      <strong>NammaCare</strong>
-      <p>A healthcare platform focused on clarity, simplicity, and trust.</p>
+    <div class="container hero-content">
+
+      <div class="hero-eyebrow">
+        Systems Thinker · LMS Consultant · Automation
+      </div>
+
+      <h1 class="hero-title">
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Helping businesses structure learning,
+        simplify operations, and build systems
+        that scale without unnecessary complexity.
+      </p>
+
+      <p class="hero-description">
+        Building workflows, learning systems, automation,
+        and thoughtful digital products
+        <span class="highlight">with intention.</span>
+      </p>
+
+      <div class="hero-buttons">
+        <a href="/elearning-consultation/" class="btn-primary">
+          Explore LMS Consulting →
+        </a>
+
+        <a href="/mind/" class="btn-secondary">
+          Read Essays
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- ABOUT -->
+  <!-- ========================= -->
+
+  <section id="about" class="section fade">
+
+    <div class="container section-grid">
+
+      <div>
+        <span class="section-label">About</span>
+
+        <h2>
+          Building calm systems
+          for complicated work.
+        </h2>
+      </div>
+
+      <div class="about-card">
+
+        <span class="about-tag">
+          Systems Thinking
+        </span>
+
+        <p>
+          I learn by building, refining, and simplifying.
+          Most of my work revolves around reducing friction —
+          whether that’s through automation, learning systems,
+          documentation, or clearer workflows.
+        </p>
+
+        <p>
+          I prefer clarity over noise,
+          systems over chaos,
+          and thoughtful execution over unnecessary complexity.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- WHAT I DO -->
+  <!-- ========================= -->
+
+  <section class="section alt fade">
+
+    <div class="container">
+
+      <span class="section-label">What I Do</span>
+
+      <h2 class="section-heading">
+        Areas I work on
+      </h2>
+
+      <div class="cards-grid">
+
+        <div class="info-card">
+          <h3>LMS Consulting</h3>
+
+          <p>
+            Helping organizations structure
+            scalable learning systems and workflows.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Automation</h3>
+
+          <p>
+            Building internal systems and automations
+            that reduce repetitive operational work.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Knowledge Systems</h3>
+
+          <p>
+            Organizing learning, notes,
+            documentation, and thinking into usable systems.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- PROJECTS -->
+  <!-- ========================= -->
+
+  <section id="projects" class="section fade">
+
+    <div class="container">
+
+      <span class="section-label">Projects</span>
+
+      <h2 class="section-heading">
+        Current focus areas
+      </h2>
+
+      <div class="project-list">
+
+        <div class="project-card">
+          <h3>NammaCare</h3>
+
+          <p>
+            A healthcare-focused platform exploring
+            simplicity, accessibility, and trust.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Automation Lab</h3>
+
+          <p>
+            Internal workflows, scripts,
+            and productivity systems for reducing friction.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Mind of Arul</h3>
+
+          <p>
+            Essays and reflections on systems,
+            clarity, learning, and intentional work.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- WRITING -->
+  <!-- ========================= -->
+
+  <section id="writing" class="section alt fade">
+
+    <div class="container">
+
+      <span class="section-label">Writing</span>
+
+      <h2 class="section-heading">
+        Writing elsewhere
+      </h2>
+
+      <div class="writing-list">
+
+        <a class="writing-item"
+          href="https://www.linkedin.com/pulse/curious-mind-simple-workflow-daily-learning-habit-arul-rajan-5k2vc"
+          target="_blank">
+
+          <div>
+            <h3>
+              How I use n8n to share highlights
+              from books I read
+            </h3>
+
+            <p>LinkedIn Article</p>
+          </div>
+
+          <span>↗</span>
+        </a>
+
+        <a class="writing-item"
+          href="https://www.linkedin.com/pulse/reimagining-2009-pc-birth-home-server-part-1-arul-rajan-qe0sc"
+          target="_blank">
+
+          <div>
+            <h3>
+              Building a home server
+              using my old PC
+            </h3>
+
+            <p>LinkedIn Article</p>
+          </div>
+
+          <span>↗</span>
+        </a>
+
+        <a class="writing-item"
+          href="https://www.linkedin.com/pulse/part-2-turning-my-home-server-automation-ai-engine-arul-rajan-i8knc"
+          target="_blank">
+
+          <div>
+            <h3>
+              Turning my home server
+              into an automation & AI engine
+            </h3>
+
+            <p>LinkedIn Article</p>
+          </div>
+
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CONTACT -->
+  <!-- ========================= -->
+
+  <section id="contact" class="section fade">
+
+    <div class="container contact-center">
+
+      <span class="section-label">Contact</span>
+
+      <h2 class="section-heading">
+        Reach out
+      </h2>
+
+      <p class="contact-text">
+        If something here resonates,
+        feel free to connect.
+      </p>
+
+      <div class="contact-links">
+
+        <a href="mailto:arulrajan22@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
+          Email
+        </a>
+
+        <a href="https://linkedin.com/in/arulrajan08" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn
+        </a>
+
+        <a href="https://medium.com/@arul08" target="_blank">
+          <i class="fa-brands fa-medium"></i>
+          Medium
+        </a>
+
+        <a href="https://www.instagram.com/_aruuulllll/" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+          Instagram
+        </a>
+
+        <a href="https://www.goodreads.com/arul08" target="_blank">
+          <i class="fa-brands fa-goodreads"></i>
+          Goodreads
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- FOOTER -->
+  <!-- ========================= -->
+
+  <footer class="footer">
+
+    <div class="container footer-content">
+
+      <p>
+        Built with intention.
+        Powered by clarity.
+      </p>
+
+      <p>
+        © 2026 IAmArul
+      </p>
+
     </div>
 
-    <div class="card">
-      <strong>Automation Lab</strong>
-      <p>Workflows, scripts, and efficiency systems.</p>
-    </div>
+  </footer>
 
-    <div class="card">
-      <strong>Personal Knowledge Hub</strong>
-      <p>Learning, notes, reflections — structured and searchable.</p>
-    </div>
-  </div>
-</section>
+  <!-- JS -->
+  <script src="script.js"></script>
 
-<!-- WRITING ELSEWHERE -->
-<section id="writing" class="white fade">
-  <div class="container">
-    <h2>Writing elsewhere</h2>
-
-    <ul class="external-writing">
-      <li>
-        <a href="www.linkedin.com/pulse/curious-mind-simple-workflow-daily-learning-habit-arul-rajan-5k2vc" target="_blank">How I use n8n to share highlights of book I read</a>
-        <span>— LinkedIn</span>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/pulse/reimagining-2009-pc-birth-home-server-part-1-arul-rajan-qe0sc" target="_blank">Building home server with my old PC</a>
-        <span>— LinkedIn</span>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/pulse/part-2-turning-my-home-server-automation-ai-engine-arul-rajan-i8knc" target="_blank">Turning My Home Server Into an Automation & AI Engine</a>
-        <span>— LinkedIn</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact fade">
-  <div class="container">
-    <h2>Contact</h2>
-
-    <div class="contact-links">
-      <a href="mailto:arulrajan22@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a>
-      <a href="https://linkedin.com/in/arulrajan08" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-      <a href="https://medium.com/@arul08" target="_blank"><i class="fa-brands fa-medium"></i>Medium</a>
-      <a href="https://www.instagram.com/_aruuulllll/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a>
-      <a href="https://www.goodreads.com/arul08" target="_blank"><i class="fa-brands fa-goodreads"></i>Goodreads</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  Built with intention. Powered by clarity.<br />
-  © 2026 IAmArul
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
