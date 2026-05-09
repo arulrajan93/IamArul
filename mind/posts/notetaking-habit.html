@@ -4,195 +4,237 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How a Pocket Notebook Helped Me Think, Plan, and Actually Execute — Mind of Arul</title>
-  <!-- Font -->
+  <meta name="description" content="I didn't start using a pocket notebook because it was trendy. I picked it up after watching Sam Altman talk about it." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../mind.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root {
+  --navy:#0B1F3A; --steel:#2F4F6F; --accent:#3B82F6;
+  --accent-dim:rgba(59,130,246,.12); --light:#F9FAFB;
+  --text:#111827; --text-mid:#374151; --text-muted:#6B7280;
+  --white:#ffffff; --border:rgba(11,31,58,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--text);line-height:1.7;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:.85rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(11,31,58,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.12);transition:padding .3s;}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:1.8rem;align-items:center;}
+.nav-links a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);}
+.nav-cta{background:var(--accent)!important;color:var(--white)!important;padding:.42rem 1.1rem;border-radius:4px;font-size:.82rem!important;font-weight:600!important;}
+.nav-cta:hover{background:#2563eb!important;}
+.progress-bar{position:fixed;top:0;left:0;z-index:200;height:3px;background:var(--accent);width:0%;transition:width .1s linear;}
+.article-header{background:var(--navy);padding:9rem 2rem 5rem;position:relative;overflow:hidden;}
+.article-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.article-header::after{content:'';position:absolute;top:10%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(59,130,246,.1) 0%,transparent 65%);pointer-events:none;}
+.article-header-inner{max-width:720px;margin:0 auto;position:relative;z-index:1;animation:fadeUp .8s ease both;}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.45);text-decoration:none;font-size:.82rem;font-weight:500;margin-bottom:1.5rem;transition:color .2s;}
+.back-link:hover{color:#93c5fd;}
+.article-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.article-date{font-size:.8rem;color:rgba(255,255,255,.4);font-weight:500;}
+.meta-dot{color:rgba(255,255,255,.2);font-size:.55rem;}
+.article-tag{font-size:.72rem;font-weight:700;color:#93c5fd;background:rgba(59,130,246,.15);padding:.18rem .6rem;border-radius:100px;}
+.article-title{font-family:'Fraunces',serif;font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:1.2rem;letter-spacing:-.02em;}
+.article-summary{font-size:1.05rem;color:rgba(255,255,255,.55);line-height:1.8;max-width:560px;font-style:italic;}
+.article-body{max-width:680px;margin:0 auto;padding:4rem 2rem 2rem;}
+.prose{font-size:1.05rem;color:var(--text-mid);line-height:1.9;}
+.prose p{margin-bottom:1.6rem;}
+.prose h2{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--navy);margin:2.5rem 0 1rem;letter-spacing:-.01em;padding-left:.9rem;border-left:3px solid var(--accent);}
+.prose ul,.prose ol{padding-left:1.4rem;margin-bottom:1.6rem;}
+.prose li{margin-bottom:.5rem;color:var(--text-mid);}
+.prose blockquote{border-left:3px solid var(--accent);margin:2rem 0;padding:1rem 1.4rem;background:var(--accent-dim);border-radius:0 8px 8px 0;font-style:italic;color:var(--steel);font-size:1.05rem;}
+.prose strong{color:var(--navy);font-weight:600;}
+.prose em{color:var(--steel);}
+.prose hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0;}
+.article-footer{max-width:680px;margin:0 auto;padding:0 2rem 6rem;}
+.article-divider{border:none;border-top:1px solid var(--border);margin:2rem 0;}
+.author-block{display:flex;gap:1.2rem;align-items:flex-start;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2.5rem;}
+.author-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--accent),#1d4ed8);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:900;color:var(--white);}
+.author-name{font-weight:600;color:var(--navy);font-size:.95rem;margin-bottom:.15rem;}
+.author-role{font-size:.8rem;color:var(--text-muted);margin-bottom:.5rem;}
+.author-bio{font-size:.85rem;color:var(--text-muted);line-height:1.65;}
+.article-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.article-nav-item{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:1.2rem;text-decoration:none;color:var(--text);transition:all .2s;}
+.article-nav-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.article-nav-item.next{text-align:right;}
+.nav-label{font-size:.72rem;font-weight:700;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;}
+.nav-title{font-size:.9rem;font-weight:600;color:var(--navy);line-height:1.4;}
+footer{background:var(--navy);padding:2rem;text-align:center;color:rgba(255,255,255,.32);font-size:.82rem;line-height:1.8;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:860px;margin:0 auto;}
+.footer-brand{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:rgba(255,255,255,.5);}
+.footer-brand span{color:var(--accent);}
+.footer-links{display:flex;gap:1.4rem;}
+.footer-links a{color:rgba(255,255,255,.32);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:#93c5fd;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:600px){.nav-links .hide-mobile{display:none;}.article-nav{grid-template-columns:1fr;}.footer-links{display:none;}}
+</style>
 </head>
 <body>
-<header class="mind-header">
-  <a href="../index.html" class="back">← Back to Mind</a>
-</header>
-<main class="post-container">
-  <article class="post">
-    <h1>How a Pocket Notebook Helped Me Think, Plan, and Actually Execute</h1>
-    <p class="meta">
-      March 2026 · Systems · Productivity
-    </p>
-    
-    <p>
-      I didn't start using a pocket notebook because it was trendy.
-    </p>
-    <p>
-      I picked it up after watching Sam Altman talk about it — and decided to try it for myself at the beginning of this year.
-    </p>
-    <p>
-      What surprised me wasn't the idea. It was that something this simple actually worked — when most "better" tools didn't.
-    </p>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav>
+  <a href="/" class="nav-logo">IAm<span>Arul</span></a>
+  <div class="nav-links">
+    <a href="/" class="hide-mobile">Home</a>
+    <a href="../index.html" class="active hide-mobile">Mind of Arul</a>
+    <a href="/elearning-consultation/" class="nav-cta">LMS Consulting →</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mind of Arul</a>
+    <div class="article-meta">
+      <span class="article-date">March 2026</span>
+      <span class="meta-dot">●</span>
+      <span class="article-tag">Systems</span>
+      <span class="article-tag">Thinking</span>
+      <span class="article-tag">habit</span>
+    </div>
+    <h1 class="article-title">How a Pocket Notebook Helped Me Think, Plan, and Actually Execute</h1>
+    <p class="article-summary">I didn't start using a pocket notebook because it was trendy. I picked it up after watching Sam Altman talk about it — and what surprised me wasn't the idea. It was that something this simple actually worked.</p>
+  </div>
+</div>
+
+<article class="article-body">
+  <div class="prose">
+
+    <p>I didn't start using a pocket notebook because it was trendy.</p>
+    <p>I picked it up after watching Sam Altman talk about it — and decided to try it for myself at the beginning of this year.</p>
+    <p>What surprised me wasn't the idea. It was that something this simple actually worked — when most "better" tools didn't.</p>
 
     <h2>Why Digital Notes Didn't Work for Me</h2>
-    <p>
-      I tried taking notes on my phone.
-    </p>
-    <p>
-      It failed.
-    </p>
-    <p>
-      Not because the apps were bad — but because:
-    </p>
+    <p>I tried taking notes on my phone.</p>
+    <p>It failed.</p>
+    <p>Not because the apps were bad — but because:</p>
     <ul>
       <li>My phone is full of distractions</li>
       <li>Notes get buried and forgotten</li>
       <li>Writing feels passive, easy to ignore</li>
     </ul>
-    <p>
-      Digital notes made me feel organized. But they didn't make me act.
-    </p>
+    <p>Digital notes made me feel organized. But they didn't make me act.</p>
 
     <h2>The Shift to a Pocket Notebook</h2>
-    <p>
-      The change was simple:
-    </p>
+    <p>The change was simple:</p>
     <ul>
       <li>One small notebook</li>
       <li>Always on my desk</li>
       <li>Always within reach</li>
     </ul>
-    <p>
-      No apps. No syncing. No system overload.
-    </p>
-    <p>
-      Just writing.
-    </p>
+    <p>No apps. No syncing. No system overload.</p>
+    <p>Just writing.</p>
 
     <h2>Planning Starts the Night Before</h2>
-    <p>
-      The most useful habit I built was this:
-    </p>
-    <p>
-      <strong>Every night, I write down the next day's tasks.</strong>
-    </p>
-    <p>
-      Not everything — just what actually matters.
-    </p>
-    <p>
-      The next morning:
-    </p>
+    <p>The most useful habit I built was this:</p>
+    <p><strong>Every night, I write down the next day's tasks.</strong></p>
+    <p>Not everything — just what actually matters.</p>
+    <p>The next morning:</p>
     <ul>
       <li>I review the list</li>
       <li>I prioritize what's important</li>
       <li>I start working immediately</li>
     </ul>
-    <p>
-      No decision fatigue. No "what should I do now?" moments.
-    </p>
+    <p>No decision fatigue. No "what should I do now?" moments.</p>
 
     <h2>Consistency Is the Whole System</h2>
-    <p>
-      This only works if I do it every single day.
-    </p>
-    <p>
-      No breaks. No skipping because I'm tired. No "I'll restart tomorrow."
-    </p>
-    <p>
-      The moment I stop writing, the system breaks:
-    </p>
+    <p>This only works if I do it every single day.</p>
+    <p>No breaks. No skipping because I'm tired. No "I'll restart tomorrow."</p>
+    <p>The moment I stop writing, the system breaks:</p>
     <ul>
       <li>Tasks stay in my head</li>
       <li>Priorities become unclear</li>
       <li>Execution drops</li>
     </ul>
-    <p>
-      There's nothing complex here to fix it later. The system depends entirely on consistency.
-    </p>
+    <p>There's nothing complex here to fix it later. The system depends entirely on consistency.</p>
 
     <h2>Visibility Changed Everything</h2>
-    <p>
-      This is the part most people underestimate.
-    </p>
-    <p>
-      <strong>The notebook is always in front of me.</strong>
-    </p>
-    <p>
-      I don't have to open an app. I don't have to remember anything.
-    </p>
-    <p>
-      I see it.
-    </p>
-    <p>
-      That constant visibility creates pressure — in a good way. It keeps me aligned with what I said I would do.
-    </p>
+    <p>This is the part most people underestimate.</p>
+    <p><strong>The notebook is always in front of me.</strong></p>
+    <p>I don't have to open an app. I don't have to remember anything.</p>
+    <p>I see it.</p>
+    <p>That constant visibility creates pressure — in a good way. It keeps me aligned with what I said I would do.</p>
 
     <h2>Capturing Ideas Before They Disappear</h2>
-    <p>
-      Ideas don't come when it's convenient.
-    </p>
-    <p>
-      They show up randomly — and disappear just as fast.
-    </p>
-    <p>
-      Now, I write them down immediately.
-    </p>
-    <p>
-      Not perfectly. Not completely. Just enough to capture the thought.
-    </p>
-    <p>
-      Later, I revisit and expand them.
-    </p>
-    <p>
-      Most ideas are useless. Some are worth building.
-    </p>
-    <p>
-      Without writing them down, I'd lose both.
-    </p>
+    <p>Ideas don't come when it's convenient.</p>
+    <p>They show up randomly — and disappear just as fast.</p>
+    <p>Now, I write them down immediately.</p>
+    <p>Not perfectly. Not completely. Just enough to capture the thought.</p>
+    <p>Later, I revisit and expand them.</p>
+    <p>Most ideas are useless. Some are worth building.</p>
+    <p>Without writing them down, I'd lose both.</p>
 
     <h2>What Actually Changed</h2>
-    <p>
-      This didn't make me more productive overnight.
-    </p>
-    <p>
-      It did something more important:
-    </p>
+    <p>This didn't make me more productive overnight.</p>
+    <p>It did something more important:</p>
     <ul>
       <li>Reduced mental clutter</li>
       <li>Removed daily decision friction</li>
       <li>Increased task completion</li>
       <li>Helped me take ideas seriously</li>
     </ul>
-    <p>
-      It made my thinking visible — and that changed how I act.
-    </p>
+    <p>It made my thinking visible — and that changed how I act.</p>
 
     <h2>Conclusion</h2>
-    <p>
-      A pocket notebook is not powerful on its own.
-    </p>
-    <p>
-      What makes it work is the discipline to use it every day without exception.
-    </p>
-    <p>
-      There's no automation. No reminders. No backup system.
-    </p>
-    <p>
-      If I show up and write, it works. If I don't, it fails.
-    </p>
-    <p>
-      <strong>That simplicity is the advantage — and the constraint.</strong>
-    </p>
-    <p>
-      Most tools try to optimize how you work. This forces you to face whether you're actually working.
-    </p>
-    <p>
-      And that's why it works.
-    </p>
-  </article>
-</main>
-<footer class="mind-footer">
-  <p>
-    Built with intention. Powered by clarity.<br />
-    © 2026 IAmArul
-  </p>
+    <p>A pocket notebook is not powerful on its own.</p>
+    <p>What makes it work is the discipline to use it every day without exception.</p>
+    <p>There's no automation. No reminders. No backup system.</p>
+    <p>If I show up and write, it works. If I don't, it fails.</p>
+    <p><strong>That simplicity is the advantage — and the constraint.</strong></p>
+    <p>Most tools try to optimize how you work. This forces you to face whether you're actually working.</p>
+    <p>And that's why it works.</p>
+
+  </div>
+</article>
+
+<div class="article-footer">
+  <hr class="article-divider">
+  <div class="author-block">
+    <div class="author-avatar">A</div>
+    <div>
+      <div class="author-name">Arul</div>
+      <div class="author-role">eLearning Manager & LMS Consultant · Karaikal, India</div>
+      <div class="author-bio">I write about systems, clarity, and building things that actually work. If this resonated, you might like the other posts on Mind of Arul.</div>
+    </div>
+  </div>
+  <div class="article-nav">
+    <div class="article-nav-item prev" style="opacity:.4;cursor:default;">
+      <div class="nav-label"><i class="fa-solid fa-arrow-left"></i> Previous</div>
+      <div class="nav-title">No earlier posts yet</div>
+    </div>
+    <a href="no-code-website.html" class="article-nav-item next">
+      <div class="nav-label">Next <i class="fa-solid fa-arrow-right"></i></div>
+      <div class="nav-title">I Built My Website Without Writing a Single Line of Code</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">IAm<span>Arul</span></div>
+    <div>Built with intention. Powered by clarity. © 2026 IAmArul</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="../index.html">Mind of Arul</a>
+      <a href="/elearning-consultation/">LMS Consulting</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => { nav.style.padding = window.scrollY > 60 ? '.6rem 2rem' : '.85rem 2rem'; }, { passive: true });
+  const bar = document.getElementById('progress');
+  const article = document.querySelector('.article-body');
+  window.addEventListener('scroll', () => {
+    const pct = Math.min(Math.max(((window.scrollY - article.offsetTop) / article.offsetHeight) * 100, 0), 100);
+    bar.style.width = pct + '%';
+  }, { passive: true });
+</script>
 </body>
 </html>
